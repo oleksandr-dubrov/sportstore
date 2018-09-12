@@ -1,4 +1,4 @@
 import Home from './Home';
-import Contact from './Contact';
+import Contacts from './Contacts';
 
-export { Home, Contact };
+export { Home, Contacts };

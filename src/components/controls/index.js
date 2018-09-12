@@ -1,4 +1,5 @@
-import BlockedButton from './Button';
+import Button from './Button';
 import Picture from './Picture';
+import AcceptButton from './AcceptButton';
 
-export { BlockedButton, Picture };
+export { Button, Picture, AcceptButton };

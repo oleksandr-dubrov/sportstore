@@ -21,10 +21,4 @@ Button.defaultProps = {
   isActive: false,
 };
 
-function BlockedButton(...rest) {
-  return Button(...{ display: 'block' }, ...rest);
-}
-
-BlockedButton.defaultName = 'BlockedButton';
-
-export default BlockedButton;
+export default Button;

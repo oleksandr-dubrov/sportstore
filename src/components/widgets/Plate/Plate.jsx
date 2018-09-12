@@ -1,5 +1,6 @@
 import React from 'react';
-import { Picture, BlockedButton } from 'components/controls';
+import PropTypes from 'prop-types';
+import { Picture, Button } from 'components/controls';
 
 const divStyle = {
   display: 'inline',
@@ -8,20 +9,30 @@ const divStyle = {
   borderRadius: '80px',
 };
 
-function Plate(props) {
+function Plate({ name, price, picture }) {
   const style = { display: 'inline' };
   return (
     <div style={divStyle}>
-      <Picture style={style} />
-      <span style={style}>{props.product.name}</span>
+      <Picture style={style} {...picture} />
+      <span style={style}>{name}</span>
       {' '}
-      <span style={style}>{`${props.product.price}`}</span>
+      <span style={style}>{`${price}`}</span>
       {' '}
-      <BlockedButton text="buy" />
+      <Button text="buy" />
     </div>
   );
 }
 
 Plate.displayName = 'Plate';
+
+Plate.propTypes = {
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  picture: PropTypes.string,
+};
+
+Plate.defaultProps = {
+  picture: '',
+};
 
 export default Plate;

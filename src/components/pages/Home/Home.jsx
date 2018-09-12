@@ -1,6 +1,6 @@
 import React from 'react';
 import { Plate } from 'components/widgets';
-import { BlockedButton } from 'components/controls';
+import { AcceptButton } from 'components/controls';
 
 const devStyle = {
   display: 'inline-block',
@@ -12,17 +12,17 @@ const products = {
   products: [
     {
       name: 'product1',
-      price: '$1',
+      price: 1,
       picture: null,
     },
     {
       name: 'product2',
-      price: '$2',
+      price: 2,
       picture: null,
     },
     {
       name: 'product3',
-      price: '$3',
+      price: 3,
       picture: null,
     },
   ],
@@ -32,9 +32,9 @@ function Home() {
   return (
     <main className="Home" style={devStyle}>
       {products.products.map(product => (
-        <Plate product={product} key={product.name} />
+        <Plate key={product.name} {...product} />
       ))}
-      <BlockedButton text="Accept" value="button1" />
+      <AcceptButton to="/contacts" text="Accept" value="acceptButton" style={{ display: 'block' }} />
     </main>
   );
 }

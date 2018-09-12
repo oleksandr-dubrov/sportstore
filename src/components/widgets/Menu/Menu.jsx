@@ -1,5 +1,5 @@
 import React from 'react';
-import { BlockedButton } from 'components/controls';
+import { Button } from 'components/controls';
 
 const groups = ['group1', 'group2', 'group3'];
 
@@ -11,7 +11,7 @@ function Menu() {
   return (
     <div className="Menu" style={divStyle}>
       {groups.map(groupName => (
-        <BlockedButton key={groupName} text={groupName} isActive style={{ display: 'block' }} />
+        <Button key={groupName} text={groupName} isActive style={{ display: 'block' }} />
       ))}
     </div>
   );
