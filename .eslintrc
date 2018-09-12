@@ -1,0 +1,18 @@
+{
+  "extends": ["airbnb"],
+  "settings": {
+    "import/resolver": "webpack"
+  },
+  "rules": {
+    "no-debugger": "error",
+    "no-alert": "error",
+    "no-console": "error",
+    "max-len": ["error", { "code": 120, "tabWidth": 2 }],
+    "react/display-name": ["error", { "ignoreTranspilerName": true }],
+    "react/prefer-stateless-function": "error",
+    "linebreak-style": 0
+  },
+  "env": {
+    "browser": true
+  }
+}
