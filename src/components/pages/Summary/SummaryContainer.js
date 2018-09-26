@@ -5,7 +5,7 @@ import Summary from './Summary';
 export const enhance = compose(
   setDisplayName('SummaryContainer'),
   connect(state => ({
-    products: state.get('products').toJS(),
+    products: state.get('selectedProducts').toJS(),
   })),
 );
 

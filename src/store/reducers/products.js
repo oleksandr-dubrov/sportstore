@@ -1,20 +1,24 @@
 import { handleActions } from 'redux-actions';
-import { List, Map } from 'immutable';
-import selectProduct from '../actions';
+import { List } from 'immutable';
 
-let id = 1;
-
-export const initStoreState = List([{ id, name: 'name', price: 999 }]);
-
-const products = handleActions(
+const initStoreState = List([
   {
-    [selectProduct]: (state, action) => {
-      id += 1;
-
-      return state.push({ id, ...action.payload });
-    },
+    name: 'product1',
+    price: 1,
+    picture: null,
   },
-  initStoreState,
-);
+  {
+    name: 'product2',
+    price: 2,
+    picture: null,
+  },
+  {
+    name: 'product3',
+    price: 3,
+    picture: null,
+  },
+]);
+
+const products = handleActions({}, initStoreState);
 
 export default products;

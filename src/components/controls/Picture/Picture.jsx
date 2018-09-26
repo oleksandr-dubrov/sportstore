@@ -1,8 +1,7 @@
 import React from 'react';
+import notFoundImg from './not_found2.png';
 
-const Picture = () => (
-  <img src="http://smartcinema.vn.ua/static/css/img/3d.png" alt="not found" height="42" width="42" />
-);
+const Picture = () => <img src={notFoundImg} alt="not found" height="42" width="42" />;
 
 Picture.displayName = 'Picture';
 

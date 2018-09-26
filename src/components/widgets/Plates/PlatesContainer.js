@@ -10,6 +10,7 @@ const enhance = compose(
   setDisplayName('PlatesContainer'),
   connect(
     state => ({
+      selectedProducts: state.get('selectedProducts').toJS(),
       products: state.get('products').toJS(),
     }),
     dispatch => ({
