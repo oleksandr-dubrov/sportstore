@@ -11,7 +11,7 @@ function Menu() {
   return (
     <div className="Menu" style={divStyle}>
       {groups.map(groupName => (
-        <Button key={groupName} text={groupName} isActive style={{ display: 'block' }} />
+        <Button key={groupName} text={groupName} style={{ display: 'block' }} />
       ))}
     </div>
   );

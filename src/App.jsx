@@ -1,28 +1,18 @@
 import React from 'react';
-import { Home, Contacts } from 'components/pages';
+import { Home } from 'components/pages';
 import { Footer, Header, Menu } from 'components/widgets';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+const displayName = 'App';
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route
-          path="/"
-          exact
-          component={() => (
-            <div style={{ paddingLeft: '50px' }}>
-              <Header />
-              <Menu />
-              <Home />
-              <Footer />
-            </div>
-          )}
-        />
-        <Route path="/contacts" component={Contacts} />
-      </Switch>
-    </BrowserRouter>
+    <main style={{ paddingLeft: '50px' }}>
+      <Header />
+      <Menu />
+      <Home />
+      <Footer />
+    </main>
   );
 }
 
-App.displayName = 'App';
+App.displayName = displayName;

@@ -1,8 +1,8 @@
 import Header from './Header';
 import Footer from './Footer';
 import Menu from './Menu';
-import Plate from './Plate';
+import Plates from './Plates';
 
 export {
-  Header, Footer, Menu, Plate,
+  Header, Footer, Menu, Plates,
 };

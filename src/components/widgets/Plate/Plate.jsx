@@ -2,6 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Picture, Button } from 'components/controls';
 
+const displayName = 'Plate';
+
+const propTypes = {
+  selectProductsHandler: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+};
+
 const divStyle = {
   display: 'inline',
   borderColor: 'coral',
@@ -9,30 +17,22 @@ const divStyle = {
   borderRadius: '80px',
 };
 
-function Plate({ name, price, picture }) {
+function Plate({ name, price, selectProductsHandler }) {
   const style = { display: 'inline' };
   return (
     <div style={divStyle}>
-      <Picture style={style} {...picture} />
+      <Picture style={style} />
       <span style={style}>{name}</span>
       {' '}
-      <span style={style}>{`${price}`}</span>
+      <span style={style}>{`$${price}`}</span>
       {' '}
-      <Button text="buy" />
+      <Button text="buy" onClick={() => selectProductsHandler(name, price)} />
     </div>
   );
 }
 
-Plate.displayName = 'Plate';
+Plate.displayName = displayName;
 
-Plate.propTypes = {
-  name: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  picture: PropTypes.string,
-};
-
-Plate.defaultProps = {
-  picture: '',
-};
+Plate.propTypes = propTypes;
 
 export default Plate;

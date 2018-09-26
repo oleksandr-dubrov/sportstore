@@ -1,41 +1,24 @@
 import React from 'react';
-import { Plate } from 'components/widgets';
-import { AcceptButton } from 'components/controls';
-
-const devStyle = {
-  display: 'inline-block',
-  borderColor: 'black',
-  border: '1px solid #ccc',
-};
-
-const products = {
-  products: [
-    {
-      name: 'product1',
-      price: 1,
-      picture: null,
-    },
-    {
-      name: 'product2',
-      price: 2,
-      picture: null,
-    },
-    {
-      name: 'product3',
-      price: 3,
-      picture: null,
-    },
-  ],
-};
+import { Plates } from 'components/widgets';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Contacts } from 'components/pages';
+import { Summary } from 'components/pages';
+import store from 'store/store';
+import { Provider } from 'react-redux';
 
 function Home() {
   return (
-    <main className="Home" style={devStyle}>
-      {products.products.map(product => (
-        <Plate key={product.name} {...product} />
-      ))}
-      <AcceptButton to="/contacts" text="Accept" value="acceptButton" style={{ display: 'block' }} />
-    </main>
+    <div className="Home" style={{ display: 'inline' }}>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Switch>
+            <Route path="/" exact component={Plates} />
+            <Route path="/contacts" component={Contacts} />
+            <Route path="/summary" component={Summary} />
+          </Switch>
+        </BrowserRouter>
+      </Provider>
+    </div>
   );
 }
 

@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
-const CleanWebpackPlugin = require("clean-webpack-plugin")
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = (_, { mode }) => ({
   mode,
@@ -19,7 +19,7 @@ module.exports = (_, { mode }) => ({
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'SMS Balance',
+      title: 'Sport Store',
       inject: true,
       favicon: './src/favicon.png',
       template: './src/index.ejs',
@@ -39,7 +39,7 @@ module.exports = (_, { mode }) => ({
     new ManifestPlugin({
       fileName: 'asset-manifest.json',
     }),
-    new CleanWebpackPlugin(["build"])
+    new CleanWebpackPlugin(['build']),
   ],
   module: {
     rules: [
