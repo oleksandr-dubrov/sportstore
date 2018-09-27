@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from 'components/controls';
 
 const displayName = 'Summary';
 
@@ -15,18 +16,22 @@ const propTypes = {
 function Summary({ products }) {
   return (
     <div style={{ display: 'inline-block' }}>
-      <p>Summary</p>
+      <h3>Summary</h3>
       {products.length > 0 ? (
-        <ol>
-          {products.map(product => (
-            <li key={product.id}>
-              {product.name}
-              {' '}
--
-              {product.price}
-            </li>
-          ))}
-        </ol>
+        <div>
+          <ol>
+            {products.map(product => (
+              <li key={product.id}>
+                {product.name}
+                {' - '}
+                {product.price}
+              </li>
+            ))}
+          </ol>
+          <span>Enter all contact information:</span>
+          <input type="text" name="contacts" />
+          <Button text="Commit" />
+        </div>
       ) : (
         <div> Nothing bought. Go back </div>
       )}

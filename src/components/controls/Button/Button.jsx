@@ -22,6 +22,7 @@ function Button({
         ...style,
         borderStyle: isActive ? 'inset' : 'outset',
       }}
+      disabled={isActive ? 'true' : undefined}
     >
       {text}
     </button>
