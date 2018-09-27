@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Picture, Button } from 'components/controls';
+import { Picture, ToggleButton } from 'components/controls';
 
 const displayName = 'Plate';
 
@@ -11,22 +11,23 @@ const propTypes = {
 };
 
 const divStyle = {
-  display: 'inline',
-  borderColor: 'coral',
-  border: '2px solid red',
+  display: 'inline-block',
+  border: '2px solid',
+  borderColor: 'red',
   borderRadius: '80px',
 };
 
+const elementStyle = { display: 'inline' };
+
 function Plate({ name, price, selectProductsHandler }) {
-  const style = { display: 'inline' };
   return (
     <div style={divStyle}>
-      <Picture style={style} />
-      <span style={style}>{name}</span>
+      <Picture style={elementStyle} />
+      <span style={elementStyle}>{name}</span>
       {' '}
-      <span style={style}>{`$${price}`}</span>
+      <span style={elementStyle}>{`$${price}`}</span>
       {' '}
-      <Button text="buy" onClick={() => selectProductsHandler(name, price)} />
+      <ToggleButton text="buy" otherText="bought" value="buy" onClick={() => selectProductsHandler(name, price)} />
     </div>
   );
 }

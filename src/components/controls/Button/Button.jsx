@@ -1,24 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Button({ text, isActive, ...rest }) {
+const displayName = 'Button';
+const propTypes = {
+  text: PropTypes.string,
+  isActive: PropTypes.bool,
+};
+const defaultProps = {
+  text: '',
+  isActive: false,
+};
+
+function Button({
+  text, isActive, style, ...rest
+}) {
   return (
-    <button type="button" {...rest}>
+    <button
+      type="button"
+      {...rest}
+      style={{
+        ...style,
+        borderStyle: isActive ? 'inset' : 'outset',
+      }}
+    >
       {text}
     </button>
   );
 }
 
-Button.displayName = 'Button';
-
-Button.propTypes = {
-  text: PropTypes.string,
-  isActive: PropTypes.bool,
-};
-
-Button.defaultProps = {
-  text: '',
-  isActive: false,
-};
+Button.displayName = displayName;
+Button.propTypes = propTypes;
+Button.defaultProps = defaultProps;
 
 export default Button;
