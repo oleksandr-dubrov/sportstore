@@ -1,9 +1,7 @@
-import {
-  compose, setDisplayName, withHandlers, withState,
-} from 'recompose';
+import { compose, setDisplayName, withHandlers } from 'recompose';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import selectProduct from 'store/actions';
+import { selectProduct, fetchProducts } from 'store/actions';
 import Plates from './Plates';
 
 const enhance = compose(
@@ -11,15 +9,22 @@ const enhance = compose(
   connect(
     state => ({
       selectedProducts: state.get('selectedProducts').toJS(),
-      products: state.get('products').toJS(),
+      fetchedProducts: state.get('fetchedProducts').toJS(),
     }),
-    dispatch => ({
-      dispatchSelectProduct: bindActionCreators(selectProduct, dispatch),
-    }),
+    dispatch => bindActionCreators(
+      {
+        dispatchSelectProduct: selectProduct,
+        dispatchFetchProduct: fetchProducts,
+      },
+      dispatch,
+    ),
   ),
   withHandlers({
     selectProductsHandler: ({ dispatchSelectProduct }) => (name, price) => {
       dispatchSelectProduct(name, price);
+    },
+    fetchProductsHandler: ({ dispatchFetchProduct }) => () => {
+      dispatchFetchProduct();
     },
   }),
 );

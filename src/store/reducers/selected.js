@@ -4,7 +4,7 @@ import selectProduct from '../actions';
 
 let id = 1;
 
-export const initStoreState = List([{ id, name: 'name', price: 999 }]);
+const initStoreState = List([]);
 
 const selectedProducts = handleActions(
   {

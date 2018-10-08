@@ -1,7 +1,6 @@
-import { SELECT_PRODUCT, selectProduct } from './actions';
+import { SELECT_PRODUCT, selectProduct, fetchProducts } from './actions';
 import { store } from './store';
-import products from './reducers';
 
 export {
-  SELECT_PRODUCT, selectProduct, store, products,
+  SELECT_PRODUCT, selectProduct, store, fetchProducts,
 };

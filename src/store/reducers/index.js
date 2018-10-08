@@ -1,4 +1,4 @@
 import selectedProducts from './selected';
-import products from './products';
+import fetchedProducts from './products';
 
-export { products, selectedProducts };
+export { fetchedProducts, selectedProducts };

@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AcceptButton } from 'components/controls';
+import { AcceptButton, Button } from 'components/controls';
 import Plate from '../Plate';
 
 const displayName = 'Plates';
 
 const propTypes = {
-  products: PropTypes.arrayOf(
+  fetchedProducts: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       price: PropTypes.number.isRequired,
@@ -14,6 +14,7 @@ const propTypes = {
     }),
   ).isRequired,
   selectProductsHandler: PropTypes.func.isRequired,
+  fetchProductsHandler: PropTypes.func.isRequired,
 };
 
 const devStyle = {
@@ -22,11 +23,17 @@ const devStyle = {
   border: '1px solid #ccc',
 };
 
-function Plates({ products, selectProductsHandler }) {
+function Plates({ fetchedProducts, selectProductsHandler, fetchProductsHandler }) {
   return (
     <div style={devStyle}>
-      {products.map(product => (
-        <Plate key={product.name} {...product} selectProductsHandler={selectProductsHandler} />
+      <Button
+        key="fetchProducts"
+        text="fetch products"
+        style={{ display: 'block' }}
+        onClick={() => fetchProductsHandler()}
+      />
+      {fetchedProducts.map(fetchedProduct => (
+        <Plate key={fetchedProduct.name} {...fetchedProduct} selectProductsHandler={selectProductsHandler} />
       ))}
       <AcceptButton to="/summary" text="Accept" value="acceptButton" style={{ display: 'block' }} />
     </div>

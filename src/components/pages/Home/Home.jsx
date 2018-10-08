@@ -6,6 +6,8 @@ import { Summary } from 'components/pages';
 import store from 'store/store';
 import { Provider } from 'react-redux';
 
+const displayName = 'Home';
+
 function Home() {
   return (
     <div className="Home" style={{ display: 'inline' }}>
@@ -22,7 +24,7 @@ function Home() {
   );
 }
 
-Home.displayName = 'Home';
+Home.displayName = displayName;
 
 Home.propTypes = {};
 
