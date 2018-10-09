@@ -1,18 +1,13 @@
 import { handleActions } from 'redux-actions';
-import { List } from 'immutable';
-import fetchProducts from '../actions';
+import { FULFILLED } from 'redux-promise-middleware';
+import { List, fromJS } from 'immutable';
+import { fetchProducts } from '../actions';
 
 const initStoreState = List([]);
 
-let id = 1;
-
 const fetchedProducts = handleActions(
   {
-    [fetchProducts]: (state, action) => {
-      id += 1;
-
-      return state.push({ id, ...action.payload });
-    },
+    [`${fetchProducts}_${FULFILLED}`]: (state, { payload: { data } }) => fromJS(data),
   },
   initStoreState,
 );

@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions';
 import { List } from 'immutable';
-import selectProduct from '../actions';
+import { selectProduct } from '../actions';
 
 let id = 1;
 

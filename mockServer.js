@@ -11,7 +11,7 @@ const mockServerDataJson = db();
 
 // Routes
 server.get('/v1/products', (req, res) => {
-  const data = mockServerDataJson[1].products;
+  const data = mockServerDataJson[req.header('X-User-Id')].products;
   res.jsonp(data);
 });
 
