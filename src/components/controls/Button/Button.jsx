@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const displayName = 'Button';
 const propTypes = {
@@ -8,24 +9,27 @@ const propTypes = {
 };
 const defaultProps = {
   text: '',
-  isActive: false,
+  isActive: true,
 };
 
-function Button({
-  text, isActive, style, ...rest
-}) {
+const ButtonStyled = styled.button`
+  background: transparent;
+  border-radius: 3px;
+  border: 2px solid ${props => (props.isActive ? 'blueviolet' : 'gray')};
+  color: ${props => (props.isActive ? 'blueviolet' : 'gray')};
+  margin: 0 1em;
+  padding: 0.25em 1em;
+  :hover {
+    color: red;
+    border: 2px solid royalblue;
+  }
+`;
+
+function Button({ text, isActive, ...rest }) {
   return (
-    <button
-      type="button"
-      {...rest}
-      style={{
-        ...style,
-        borderStyle: isActive ? 'inset' : 'outset',
-      }}
-      disabled={isActive ? 'true' : undefined}
-    >
+    <ButtonStyled type="button" isActive={isActive} disabled={isActive ? undefined : 'true'} {...rest}>
       {text}
-    </button>
+    </ButtonStyled>
   );
 }
 

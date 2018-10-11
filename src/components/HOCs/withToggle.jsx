@@ -26,7 +26,9 @@ function withToggle(WrappedComponent) {
       const { isToggled } = this.state;
       const newText = isToggled ? otherText : text;
 
-      return <WrappedComponent {...passThroughProps} onClick={this.clickHandler} isActive={isToggled} text={newText} />;
+      return (
+        <WrappedComponent {...passThroughProps} onClick={this.clickHandler} isActive={!isToggled} text={newText} />
+      );
     }
   }
 

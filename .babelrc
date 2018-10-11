@@ -5,19 +5,38 @@
       {
         "removePropTypes": true
       }
+    ],
+    [
+      "env",
+      {
+        "loose": true,
+        "uglify": true,
+        "modules": false
+      }
     ]
   ],
   "env": {
-    "development": {},
+    "development": {
+      "plugins": [
+        ["styled-components", {
+          "ssr": false,
+          "minify": true,
+          "displayName": true
+        }]
+      ]
+    },
     "production": {
       "plugins": [
-        [
-          "transform-react-remove-prop-types",
-          {
-            "removeImport": true
-          }
-        ]
+        "transform-runtime",
+        ["styled-components", {
+          "ssr": false,
+          "minify": true,
+          "displayName": false
+        }]
       ]
     }
-  }
+  },
+  "plugins": [
+    "transform-runtime"
+  ]
 }
