@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Picture, ToggleButton } from 'components/controls';
+import {
+  Picture, ToggleButton, ProductsText, PriceText,
+} from 'components/controls';
 
 const displayName = 'Plate';
 
@@ -23,9 +25,9 @@ function Plate({ name, price, selectProductsHandler }) {
   return (
     <div style={divStyle}>
       <Picture style={elementStyle} />
-      <span style={elementStyle}>{name}</span>
+      <ProductsText style={elementStyle}>{name}</ProductsText>
       {' '}
-      <span style={elementStyle}>{`$${price}`}</span>
+      <PriceText style={elementStyle}>{price}</PriceText>
       {' '}
       <ToggleButton text="buy" otherText="bought" value="buy" onClick={() => selectProductsHandler(name, price)} />
     </div>

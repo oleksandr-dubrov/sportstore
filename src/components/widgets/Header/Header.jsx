@@ -1,4 +1,5 @@
 import React from 'react';
+import { HeaderText } from 'components/controls';
 
 const divStyle = {
   padding: '0.5%',
@@ -6,7 +7,7 @@ const divStyle = {
 
 const Header = () => (
   <div className="Header" style={divStyle}>
-    Header
+    <HeaderText>Header</HeaderText>
   </div>
 );
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { FooterText } from 'components/controls';
 
 const divStyle = {
   padding: '0.5%',
@@ -6,7 +7,7 @@ const divStyle = {
 
 const Footer = () => (
   <div className="Footer" style={divStyle}>
-    Footer
+    <FooterText>Footer</FooterText>
   </div>
 );
 

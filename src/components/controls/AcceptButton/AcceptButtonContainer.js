@@ -2,12 +2,12 @@ import {
   withHandlers, setDisplayName, compose, mapProps,
 } from 'recompose';
 import { withRouter } from 'react-router-dom';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 import Button from '../Button';
 
-// const AcceptButton = styled(Button)`
-//   border: 2px solid 'red';
-// `;
+const AcceptButton = styled(Button)`
+  border: 2px solid red;
+`;
 
 export const enhance = compose(
   setDisplayName('AcceptButtonContainer'),
@@ -20,4 +20,4 @@ export const enhance = compose(
   mapProps(({ text, value, onClick }) => ({ text, value, onClick })),
 );
 
-export default enhance(Button);
+export default enhance(AcceptButton);
