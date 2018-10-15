@@ -1,5 +1,5 @@
-import withToggle from 'components/HOCs';
-import Button from '../Button';
+import withToggle from "components/HOCs";
+import { Button } from "../Button";
 
 const ToggleButton = withToggle(Button);
 
