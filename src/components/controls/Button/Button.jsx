@@ -23,6 +23,10 @@ const ButtonStyled = styled.button`
     color: red;
     border: 2px solid royalblue;
   }
+  :disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 `;
 
 function Button({ text, isActive, ...rest }) {

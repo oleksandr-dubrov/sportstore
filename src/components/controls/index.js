@@ -5,7 +5,7 @@ import ToggleButton from './ToggleButton';
 import {
   HeaderText, FooterText, ProductsText, PriceText, FromItemText, FromSectionText,
 } from './Texts';
-import Input from './Input';
+import { InputNumber, InputText } from './Input';
 
 export {
   Button,
@@ -18,6 +18,7 @@ export {
   PriceText,
   FromItemText,
   FromSectionText,
-  Input,
+  InputNumber,
+  InputText,
   ButtonPlusMinus,
 };
