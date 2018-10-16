@@ -1,4 +1,4 @@
-import { compose, setDisplayName, withHandlers } from "recompose";
+import { compose, setDisplayName, withHandlers, withState } from "recompose";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { increaseQuantity } from "store/actions";
@@ -18,6 +18,7 @@ export const enhance = compose(
         dispatch
       )
   ),
+  withState("quantity", "setQuantity", ""),
   withHandlers({
     increaseQuantityHandler: ({ dispatchIncreaseQuantity }) => product => {
       dispatchIncreaseQuantity(
