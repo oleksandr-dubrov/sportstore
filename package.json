@@ -14,8 +14,7 @@
     "test": "jest",
     "test:integration": "npm-run-all --parallel start start:wdio",
     "test:integration:dev": "npm-run-all --parallel start start:wdio:dev",
-    "precommit": "lint-staged",
-    "prepush": "npm run test"
+    "precommit": "lint-staged"
   },
   "keywords": [],
   "author": "olexandr",
