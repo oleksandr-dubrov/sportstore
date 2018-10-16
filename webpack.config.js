@@ -4,7 +4,9 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-module.exports = (_, { mode }) => ({
+const mode = (process || process.env.npm_lifecycle_script.match(/(?<=--mode\s+).+/) || ['production'])[0];
+
+module.exports = {
   mode,
   entry: './src/index.jsx',
   output: {
@@ -13,7 +15,7 @@ module.exports = (_, { mode }) => ({
     publicPath: '/',
   },
   resolve: {
-    modules: ['node_modules', './src'],
+    modules: ['node_modules', './src', './test'],
     extensions: ['.js', '.jsx', '.json'],
     plugins: [new DirectoryNamedWebpackPlugin(true)],
   },
@@ -71,4 +73,4 @@ module.exports = (_, { mode }) => ({
     host: '0.0.0.0',
     port: 3000,
   },
-});
+};

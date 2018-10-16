@@ -15,6 +15,9 @@
       }
     ]
   ],
+  "plugins": [
+    "transform-runtime"
+  ],
   "env": {
     "development": {
       "plugins": [
@@ -27,7 +30,6 @@
     },
     "production": {
       "plugins": [
-        "transform-runtime",
         ["styled-components", {
           "ssr": false,
           "minify": true,
@@ -35,8 +37,5 @@
         }]
       ]
     }
-  },
-  "plugins": [
-    "transform-runtime"
-  ]
+  }
 }
