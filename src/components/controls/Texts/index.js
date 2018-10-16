@@ -1,9 +1,7 @@
-import HeaderText from './HeaderText';
-import FooterText from './FooterText';
-import ProductsText from './ProductsText';
+import {
+  HeaderText, FooterText, ProductsText, FromItemText, FromSectionText,
+} from './Texts';
 import PriceText from './PriceText';
-import FromItemText from './FormItemText';
-import FromSectionText from './FormSectionText';
 
 export {
   HeaderText, FooterText, ProductsText, PriceText, FromItemText, FromSectionText,
