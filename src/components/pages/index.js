@@ -1,5 +1,5 @@
-import Home from './Home';
-import Contacts from './Contacts';
-import Summary from './Summary';
+import Catalog from './Catalog';
+import Order from './Order';
+import Cart from './Cart';
 
-export { Home, Contacts, Summary };
+export { Catalog, Order, Cart };

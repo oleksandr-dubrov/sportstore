@@ -4,10 +4,10 @@ import {
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { increaseQuantity } from 'store/actions';
-import Summary from './Summary';
+import Cart from './Cart';
 
 export const enhance = compose(
-  setDisplayName('SummaryContainer'),
+  setDisplayName('CartContainer'),
   connect(
     state => ({
       products: state.get('selectedProducts').toJS(),
@@ -27,4 +27,4 @@ export const enhance = compose(
   }),
 );
 
-export default enhance(Summary);
+export default enhance(Cart);

@@ -4,7 +4,7 @@ import {
   Picture, ToggleButton, ProductsText, PriceText,
 } from 'components/controls';
 
-const displayName = 'Plate';
+const displayName = 'Product';
 
 const propTypes = {
   selectProductsHandler: PropTypes.func.isRequired,
@@ -21,7 +21,7 @@ const divStyle = {
 
 const elementStyle = { display: 'inline' };
 
-function Plate({ name, price, selectProductsHandler }) {
+function Product({ name, price, selectProductsHandler }) {
   return (
     <div style={divStyle}>
       <Picture style={elementStyle} />
@@ -34,8 +34,8 @@ function Plate({ name, price, selectProductsHandler }) {
   );
 }
 
-Plate.displayName = displayName;
+Product.displayName = displayName;
 
-Plate.propTypes = propTypes;
+Product.propTypes = propTypes;
 
-export default Plate;
+export default Product;

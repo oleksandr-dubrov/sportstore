@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Button, InputText } from 'components/controls';
 import { Counter } from 'components/widgets';
 
-const displayName = 'Summary';
+const displayName = 'Cart';
 
 const propTypes = {
   products: PropTypes.arrayOf(
@@ -16,10 +16,10 @@ const propTypes = {
   increaseQuantityHandler: PropTypes.func.isRequired,
 };
 
-function Summary({ products, increaseQuantityHandler }) {
+function Cart({ products, increaseQuantityHandler }) {
   return (
     <div style={{ display: 'inline-block' }}>
-      <h3>Summary</h3>
+      <h3>Cart</h3>
       {products.length > 0 ? (
         <div>
           <ol>
@@ -44,7 +44,7 @@ function Summary({ products, increaseQuantityHandler }) {
   );
 }
 
-Summary.displayName = displayName;
-Summary.propTypes = propTypes;
+Cart.displayName = displayName;
+Cart.propTypes = propTypes;
 
-export default Summary;
+export default Cart;

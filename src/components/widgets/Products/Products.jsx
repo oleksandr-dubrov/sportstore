@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { AcceptButton, Button } from 'components/controls';
-import Plate from '../Plate';
+import Product from '../Product';
 
-const displayName = 'Plates';
+const displayName = 'Products';
 
 const propTypes = {
   fetchedProducts: PropTypes.arrayOf(
@@ -23,7 +23,7 @@ const devStyle = {
   border: '1px solid #ccc',
 };
 
-function Plates({ fetchedProducts, selectProductsHandler, fetchProductsHandler }) {
+function Products({ fetchedProducts, selectProductsHandler, fetchProductsHandler }) {
   return (
     <div style={devStyle}>
       <Button
@@ -33,14 +33,14 @@ function Plates({ fetchedProducts, selectProductsHandler, fetchProductsHandler }
         onClick={() => fetchProductsHandler()}
       />
       {fetchedProducts.map(fetchedProduct => (
-        <Plate key={fetchedProduct.name} {...fetchedProduct} selectProductsHandler={selectProductsHandler} />
+        <Product key={fetchedProduct.name} {...fetchedProduct} selectProductsHandler={selectProductsHandler} />
       ))}
-      <AcceptButton to="/summary" text="Accept" value="acceptButton" style={{ display: 'block' }} />
+      <AcceptButton to="/cart" text="Accept" value="acceptButton" style={{ display: 'block' }} />
     </div>
   );
 }
 
-Plates.displayName = displayName;
-Plates.propTypes = propTypes;
+Products.displayName = displayName;
+Products.propTypes = propTypes;
 
-export default Plates;
+export default Products;

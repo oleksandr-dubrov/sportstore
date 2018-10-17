@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home } from 'components/pages';
+import { Catalog } from 'components/pages';
 import { Footer, Header } from 'components/widgets';
 
 const displayName = 'App';
@@ -8,7 +8,7 @@ export default function App() {
   return (
     <main style={{ paddingLeft: '50px' }}>
       <Header />
-      <Home />
+      <Catalog />
       <Footer />
     </main>
   );

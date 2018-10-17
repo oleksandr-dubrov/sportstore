@@ -1,8 +1,8 @@
 import Header from './Header';
 import Footer from './Footer';
-import Plates from './Plates';
+import Products from './Products';
 import Counter from './Counter';
 
 export {
-  Header, Footer, Plates, Counter,
+  Header, Footer, Products, Counter,
 };

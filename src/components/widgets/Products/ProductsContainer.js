@@ -2,7 +2,7 @@ import { compose, setDisplayName, withHandlers } from 'recompose';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { selectProduct, fetchProducts } from 'store/actions';
-import Plates from './Plates';
+import Products from './Products';
 
 const enhance = compose(
   setDisplayName('PlatesContainer'),
@@ -29,4 +29,4 @@ const enhance = compose(
   }),
 );
 
-export default enhance(Plates);
+export default enhance(Products);
