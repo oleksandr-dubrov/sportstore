@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AcceptButton, Button } from 'components/controls';
+import { AcceptButton } from 'components/controls';
 import Product from '../Product';
 
 const displayName = 'Products';
@@ -14,7 +14,6 @@ const propTypes = {
     }),
   ).isRequired,
   selectProductsHandler: PropTypes.func.isRequired,
-  fetchProductsHandler: PropTypes.func.isRequired,
 };
 
 const devStyle = {
@@ -23,15 +22,9 @@ const devStyle = {
   border: '1px solid #ccc',
 };
 
-function Products({ fetchedProducts, selectProductsHandler, fetchProductsHandler }) {
+function Products({ fetchedProducts, selectProductsHandler }) {
   return (
     <div style={devStyle}>
-      <Button
-        key="fetchProducts"
-        text="fetch products"
-        style={{ display: 'block' }}
-        onClick={() => fetchProductsHandler()}
-      />
       {fetchedProducts.map(fetchedProduct => (
         <Product key={fetchedProduct.name} {...fetchedProduct} selectProductsHandler={selectProductsHandler} />
       ))}

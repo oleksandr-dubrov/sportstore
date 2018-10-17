@@ -1,23 +1,24 @@
-import { compose, setDisplayName, withHandlers } from 'recompose';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { selectProduct, fetchProducts } from 'store/actions';
-import Products from './Products';
+import { compose, setDisplayName, withHandlers, lifecycle, pure } from "recompose";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { selectProduct, fetchProducts } from "store/actions";
+import Products from "./Products";
 
 const enhance = compose(
-  setDisplayName('PlatesContainer'),
+  setDisplayName("PlatesContainer"),
   connect(
     state => ({
-      selectedProducts: state.get('selectedProducts').toJS(),
-      fetchedProducts: state.get('fetchedProducts').toJS(),
+      selectedProducts: state.get("selectedProducts").toJS(),
+      fetchedProducts: state.get("fetchedProducts").toJS()
     }),
-    dispatch => bindActionCreators(
-      {
-        dispatchSelectProduct: selectProduct,
-        dispatchFetchProduct: fetchProducts,
-      },
-      dispatch,
-    ),
+    dispatch =>
+      bindActionCreators(
+        {
+          dispatchSelectProduct: selectProduct,
+          dispatchFetchProduct: fetchProducts
+        },
+        dispatch
+      )
   ),
   withHandlers({
     selectProductsHandler: ({ dispatchSelectProduct }) => (name, price) => {
@@ -25,8 +26,14 @@ const enhance = compose(
     },
     fetchProductsHandler: ({ dispatchFetchProduct }) => () => {
       dispatchFetchProduct();
-    },
+    }
   }),
+  lifecycle({
+    componentDidMount() {
+      this.props.fetchProductsHandler();
+    }
+  }),
+  pure
 );
 
 export default enhance(Products);
