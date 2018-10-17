@@ -1,8 +1,8 @@
 {
-  "name": "SportStore",
+  "name": "sport-store",
   "version": "0.0.1",
   "license": "MIT",
-  "description": "A trainig project for react",
+  "description": "A training project for react",
   "sideEffects": false,
   "scripts": {
     "build": "webpack --mode production",
@@ -13,11 +13,10 @@
     "start:wdio:dev": "wdio --watch",
     "test": "jest",
     "test:integration": "npm-run-all --parallel start start:wdio",
-    "test:integration:dev": "npm-run-all --parallel start start:wdio:dev",
-    "precommit": "lint-staged"
+    "test:integration:dev": "npm-run-all --parallel start start:wdio:dev"
   },
   "keywords": [],
-  "author": "olexandr",
+  "author": "oleksandr",
   "dependencies": {
     "axios": "0.18.0",
     "babel-jest": "23.6.0",
