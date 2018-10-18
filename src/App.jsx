@@ -1,16 +1,14 @@
 import React from 'react';
 import { Catalog } from 'components/pages';
-import { Footer, Header } from 'components/widgets';
+import Layout from 'components/layouts';
 
 const displayName = 'App';
 
 export default function App() {
   return (
-    <main style={{ paddingLeft: '50px' }}>
-      <Header />
+    <Layout name="layout name">
       <Catalog />
-      <Footer />
-    </main>
+    </Layout>
   );
 }
 
