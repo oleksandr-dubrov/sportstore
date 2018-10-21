@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import PriceTextStyled from './PriceTextStyled';
 
 const displayName = 'PriceText';
 const propTypes = {
@@ -11,12 +11,9 @@ const defaultProps = {
   currency: '$',
 };
 
-const PriceTextStyled = styled.span`
-  font-weight: bold;
-  font-style: italic;
-`;
-
-const PriceText = ({ currency, children }) => <PriceTextStyled>{`${currency}${children}`}</PriceTextStyled>;
+const PriceText = ({ currency, children }) => (
+  <PriceTextStyled>{`${currency}${children}`}</PriceTextStyled>
+);
 
 PriceText.displayName = displayName;
 PriceText.propTypes = propTypes;

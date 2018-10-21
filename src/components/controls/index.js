@@ -1,4 +1,4 @@
-import { Button, ButtonPlusMinus } from './Button';
+import Button from './Button';
 import Picture from './Picture';
 import AcceptButton from './AcceptButton';
 import ToggleButton from './ToggleButton';
@@ -20,5 +20,4 @@ export {
   FromSectionText,
   InputNumber,
   InputText,
-  ButtonPlusMinus,
 };

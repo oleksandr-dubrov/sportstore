@@ -1,11 +1,6 @@
 import { withHandlers, setDisplayName, compose } from 'recompose';
 import { withRouter } from 'react-router-dom';
-import styled from 'styled-components';
-import { Button } from '../Button';
-
-const AcceptButton = styled(Button)`
-  border: 2px solid red;
-`;
+import AcceptButtonStyled from './AcceptButtonStyled';
 
 export const enhance = compose(
   setDisplayName('AcceptButtonContainer'),
@@ -17,4 +12,4 @@ export const enhance = compose(
   }),
 );
 
-export default enhance(AcceptButton);
+export default enhance(AcceptButtonStyled);

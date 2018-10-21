@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions';
 import { FULFILLED } from 'redux-promise-middleware';
 import { List, fromJS } from 'immutable';
-import { fetchProducts } from '../actions';
+import { fetchProducts } from 'actions';
 
 const initStoreState = List([]);
 

@@ -1,6 +1,6 @@
-import { handleActions } from "redux-actions";
-import { List, findIndex } from "immutable";
-import { selectProduct, increaseQuantity } from "../actions";
+import { handleActions } from 'redux-actions';
+import { List } from 'immutable';
+import { selectProduct, increaseQuantity } from 'actions';
 
 let id = 1;
 
@@ -19,9 +19,9 @@ const selectedProducts = handleActions(
       const product = action.payload;
       product.quantity += 1;
       return state.set(state.findIndex(p => p.id === product.id), product);
-    }
+    },
   },
-  initStoreState
+  initStoreState,
 );
 
 export default selectedProducts;

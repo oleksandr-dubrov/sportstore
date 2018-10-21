@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ButtonPlusMinus, InputNumber } from 'components/controls';
+import { InputNumber } from 'components/controls';
+import ButtonPlusMinus from './ButtonPlusMinus';
 
 const displayName = 'Counter';
 

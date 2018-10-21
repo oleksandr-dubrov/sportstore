@@ -1,7 +1,7 @@
 import React from 'react';
 import { Products } from 'components/widgets';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import store from 'store/store';
+import store from 'store';
 import { Provider } from 'react-redux';
 import Order from '../Order';
 import Cart from '../Cart';

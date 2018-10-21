@@ -3,7 +3,7 @@ import {
 } from 'recompose';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { increaseQuantity } from 'store/actions';
+import { increaseQuantity } from 'actions';
 import Cart from './Cart';
 
 export const enhance = compose(

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { AcceptButton } from 'components/controls';
 import Product from '../Product';
+import ProductsStyled from './ProductsStyled';
 
 const displayName = 'Products';
 
@@ -16,20 +17,14 @@ const propTypes = {
   selectProductsHandler: PropTypes.func.isRequired,
 };
 
-const devStyle = {
-  display: 'inline-block',
-  borderColor: 'black',
-  border: '1px solid #ccc',
-};
-
 function Products({ fetchedProducts, selectProductsHandler }) {
   return (
-    <div style={devStyle}>
+    <ProductsStyled>
       {fetchedProducts.map(fetchedProduct => (
         <Product key={fetchedProduct.name} {...fetchedProduct} selectProductsHandler={selectProductsHandler} />
       ))}
       <AcceptButton to="/cart" text="Accept" value="acceptButton" style={{ display: 'block' }} />
-    </div>
+    </ProductsStyled>
   );
 }
 
