@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { HeaderText } from 'components/controls';
+import HeaderStyled from './HeaderStyled';
 
 const Header = ({ name }) => (
-  <div className="Header" style={{ padding: '0.5%' }}>
-    <HeaderText>{`Sport Store. ${name}`}</HeaderText>
+  <div className="Header">
+    <HeaderStyled>{`Sport Store. ${name}`}</HeaderStyled>
   </div>
 );
 

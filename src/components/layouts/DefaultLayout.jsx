@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Footer, Header } from 'components/widgets';
+import { Footer, Header, CartBox } from 'components/widgets';
+import DefaultLayoutStyled from './DefaultLayoutStyled';
 
 const displayName = 'DefaultLayout';
 const propTypes = {
@@ -9,11 +10,14 @@ const propTypes = {
 
 function DefaultLayout({ children }) {
   return (
-    <main style={{ paddingLeft: '50px' }}>
-      <Header name={children.type.displayName} />
+    <DefaultLayoutStyled>
+      <div>
+        <Header name="Catalog" />
+        <CartBox />
+      </div>
       {children}
       <Footer />
-    </main>
+    </DefaultLayoutStyled>
   );
 }
 

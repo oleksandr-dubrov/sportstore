@@ -1,3 +1,4 @@
 import DefaultLayout from './DefaultLayout';
+import OrderLayout from './OrderLayout';
 
-export default DefaultLayout;
+export { DefaultLayout, OrderLayout };

@@ -19,7 +19,6 @@ const propTypes = {
 function Cart({ products, increaseQuantityHandler }) {
   return (
     <div style={{ display: 'inline-block' }}>
-      <h3>Cart</h3>
       {products.length > 0 ? (
         <div>
           <ol>
