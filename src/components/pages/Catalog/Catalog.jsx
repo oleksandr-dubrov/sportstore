@@ -1,10 +1,15 @@
 import React from 'react';
 import { Products } from 'components/widgets';
+import { DefaultLayout } from 'components/layouts';
 
 const displayName = 'Catalog';
 
 function Catalog() {
-  return <Products />;
+  return (
+    <DefaultLayout name="Catalog">
+      <Products />
+    </DefaultLayout>
+  );
 }
 
 Catalog.displayName = displayName;

@@ -57,6 +57,11 @@ module.exports = {
           options: { name: 'assets/[name][hash].[ext]' },
         },
       },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader',
+        include: /flexboxgrid/,
+      },
     ],
   },
   devtool: mode === 'production' ? false : 'cheap-module-source-map',

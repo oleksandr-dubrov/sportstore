@@ -16,6 +16,16 @@ module.exports = () => ({
         price: 3,
         picture: null,
       },
+      {
+        name: 'product4',
+        price: 4,
+        picture: null,
+      },
+      {
+        name: 'product5',
+        price: 5,
+        picture: null,
+      },
     ],
   },
 });

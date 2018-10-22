@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, InputText } from 'components/controls';
 import { Counter } from 'components/widgets';
+import { OrderLayout } from 'components/layouts';
 
 const displayName = 'Cart';
 
@@ -18,28 +19,30 @@ const propTypes = {
 
 function Cart({ products, increaseQuantityHandler }) {
   return (
-    <div style={{ display: 'inline-block' }}>
-      {products.length > 0 ? (
-        <div>
-          <ol>
-            {products.map(product => (
-              <li key={product.id}>
-                {product.name}
-                {' - '}
-                {product.price}
-                {' - '}
-                <Counter product={product} increaseQuantityHandler={increaseQuantityHandler} />
-              </li>
-            ))}
-          </ol>
-          <span>Enter all contact information:</span>
-          <InputText />
-          <Button text="Commit" />
-        </div>
-      ) : (
-        <div> Nothing bought. Go back </div>
-      )}
-    </div>
+    <OrderLayout name="Order">
+      <div>
+        {products.length > 0 ? (
+          <div>
+            <ol>
+              {products.map(product => (
+                <li key={product.id}>
+                  {product.name}
+                  {' - '}
+                  {product.price}
+                  {' - '}
+                  <Counter product={product} increaseQuantityHandler={increaseQuantityHandler} />
+                </li>
+              ))}
+            </ol>
+            <span>Enter all contact information:</span>
+            <InputText />
+            <Button text="Commit" />
+          </div>
+        ) : (
+          <div> Nothing bought. Go back </div>
+        )}
+      </div>
+    </OrderLayout>
   );
 }
 
