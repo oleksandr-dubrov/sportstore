@@ -11,13 +11,13 @@ const propTypes = {
     price: PropTypes.number.isRequired,
     quantity: PropTypes.number.isRequired,
   }).isRequired,
-  increaseQuantityHandler: PropTypes.func.isRequired,
+  increaseHandler: PropTypes.func.isRequired,
 };
 
-function Counter({ product, increaseQuantityHandler }) {
+function Counter({ product, increaseHandler }) {
   return (
     <div>
-      <ButtonPlusMinus text="+" value="+" onClick={() => increaseQuantityHandler(product)} />
+      <ButtonPlusMinus text="+" value="+" onClick={increaseHandler} />
       <InputNumber />
       <ButtonPlusMinus text="-" value="-" />
     </div>

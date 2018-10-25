@@ -7,7 +7,7 @@ import { selectProduct, fetchProducts } from 'actions';
 import Products from './Products';
 
 const enhance = compose(
-  setDisplayName('PlatesContainer'),
+  setDisplayName('ProductsContainer'),
   connect(
     state => ({
       selectedProducts: state.get('selectedProducts').toJS(),

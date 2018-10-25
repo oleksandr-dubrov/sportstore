@@ -8,14 +8,14 @@ import ProductStyled from './ProductStyled';
 const displayName = 'Product';
 
 const propTypes = {
-  selectProductsHandler: PropTypes.func.isRequired,
+  selectHandler: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
 };
 
 const elementStyle = { display: 'inline' };
 
-function Product({ name, price, selectProductsHandler }) {
+function Product({ name, price, selectHandler }) {
   return (
     <ProductStyled>
       <Picture style={elementStyle} />
@@ -23,7 +23,7 @@ function Product({ name, price, selectProductsHandler }) {
       {' '}
       <PriceText style={elementStyle}>{price}</PriceText>
       {' '}
-      <ToggleButton text="buy" otherText="bought" value="buy" onClick={() => selectProductsHandler(name, price)} />
+      <ToggleButton text="buy" otherText="bought" value="buy" onClick={selectHandler} />
     </ProductStyled>
   );
 }

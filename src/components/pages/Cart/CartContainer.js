@@ -21,6 +21,7 @@ export const enhance = compose(
   ),
   withState('quantity', 'setQuantity', ''),
   withHandlers({
+    /* TODO: there is should be only one handler - onChangeHandler */
     increaseQuantityHandler: ({ dispatchIncreaseQuantity }) => (product) => {
       dispatchIncreaseQuantity(product.id, product.name, product.price, product.quantity);
     },
