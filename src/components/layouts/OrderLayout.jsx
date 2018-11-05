@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Footer, Header } from 'components/widgets';
-import DefaultLayoutStyled from './DefaultLayoutStyled';
+import OrderLayoutStyled from './OrderLayoutStyled';
 
 const displayName = 'OrderLayout';
 const propTypes = {
@@ -16,7 +16,7 @@ const defaultProps = {
 
 function OrderLayout({ name, children }) {
   return (
-    <DefaultLayoutStyled>
+    <OrderLayoutStyled>
       <Grid fluid>
         <Row>
           <Col xs>
@@ -28,7 +28,7 @@ function OrderLayout({ name, children }) {
           <Footer />
         </Row>
       </Grid>
-    </DefaultLayoutStyled>
+    </OrderLayoutStyled>
   );
 }
 
