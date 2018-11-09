@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const FooterText = styled.span`
+const FooterText = styled.small`
   color: green;
 `;
 

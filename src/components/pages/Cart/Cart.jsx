@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, InputText } from 'components/controls';
+import { Button, InputText, ProductsText, PriceText } from 'components/controls';
 import { Counter } from 'components/widgets';
 import { OrderLayout } from 'components/layouts';
 
@@ -15,9 +15,19 @@ const propTypes = {
     }),
   ).isRequired,
   onChangeHandler: PropTypes.func.isRequired,
+  total: PropTypes.number.isRequired,
 };
 
-function Cart({ products, onChangeHandler }) {
+const VerticalGapStyle = {
+  marginLeft: '2em',
+};
+
+const HorizontalGapStyle = {
+  marginTop: '2px',
+  marginBottom: '2px',
+};
+
+function Cart({ products, onChangeHandler, total }) {
   return (
     <OrderLayout name="Order">
       <div>
@@ -25,15 +35,19 @@ function Cart({ products, onChangeHandler }) {
           <div>
             <ol>
               {products.map(product => (
-                <li key={product.id}>
-                  {product.name}
-                  {' - '}
-                  {product.price}
-                  {' - '}
-                  <Counter product={product} onChangeHandler={onChangeHandler} />
+                <li key={product.id} style={HorizontalGapStyle}>
+                  <ProductsText>{product.name}</ProductsText>
+                  <span style={VerticalGapStyle}>
+                    <Counter product={product} onChangeHandler={onChangeHandler} />
+                  </span>
+                  <span style={VerticalGapStyle}>
+                    <PriceText>{product.price * product.quantity}</PriceText>
+                  </span>
                 </li>
               ))}
             </ol>
+            <hr />
+            <PriceText>{total}</PriceText>
             <span>Enter all contact information:</span>
             <InputText />
             <Button text="Commit" />

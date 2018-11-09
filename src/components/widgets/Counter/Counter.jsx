@@ -16,11 +16,11 @@ function Counter({
   quantity, increaseHandler, decreaseHandler, onChangeHandler,
 }) {
   return (
-    <div>
+    <span>
       <ButtonPlusMinus text="+" value="+" onClick={increaseHandler} />
       <InputNumber value={quantity} onChange={onChangeHandler} />
       <ButtonPlusMinus text="-" value="-" onClick={decreaseHandler} />
-    </div>
+    </span>
   );
 }
 
