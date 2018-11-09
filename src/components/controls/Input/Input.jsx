@@ -13,14 +13,7 @@ const defaultProps = {
 };
 
 function Input({ value, onChangeHandler }) {
-  return (
-    <InputStyled
-      type="text"
-      name="counter"
-      value={value}
-      onChange={onChangeHandler}
-    />
-  );
+  return <InputStyled type="text" name="counter" value={value} onChange={onChangeHandler} />;
 }
 
 Input.displayName = displayName;

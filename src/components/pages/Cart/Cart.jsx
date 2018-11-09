@@ -14,10 +14,10 @@ const propTypes = {
       quantity: PropTypes.number.isRequired,
     }),
   ).isRequired,
-  increaseQuantityHandler: PropTypes.func.isRequired,
+  onChangeHandler: PropTypes.func.isRequired,
 };
 
-function Cart({ products, increaseQuantityHandler }) {
+function Cart({ products, onChangeHandler }) {
   return (
     <OrderLayout name="Order">
       <div>
@@ -30,7 +30,7 @@ function Cart({ products, increaseQuantityHandler }) {
                   {' - '}
                   {product.price}
                   {' - '}
-                  <Counter product={product} increaseQuantityHandler={increaseQuantityHandler} />
+                  <Counter product={product} onChangeHandler={onChangeHandler} />
                 </li>
               ))}
             </ol>

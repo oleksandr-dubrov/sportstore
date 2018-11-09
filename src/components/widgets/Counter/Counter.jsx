@@ -6,20 +6,20 @@ import ButtonPlusMinus from './ButtonPlusMinus';
 const displayName = 'Counter';
 
 const propTypes = {
-  product: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    quantity: PropTypes.number.isRequired,
-  }).isRequired,
+  quantity: PropTypes.number.isRequired,
   increaseHandler: PropTypes.func.isRequired,
+  decreaseHandler: PropTypes.func.isRequired,
+  onChangeHandler: PropTypes.func.isRequired,
 };
 
-function Counter({ product, increaseHandler }) {
+function Counter({
+  quantity, increaseHandler, decreaseHandler, onChangeHandler,
+}) {
   return (
     <div>
       <ButtonPlusMinus text="+" value="+" onClick={increaseHandler} />
-      <InputNumber />
-      <ButtonPlusMinus text="-" value="-" />
+      <InputNumber value={quantity} onChange={onChangeHandler} />
+      <ButtonPlusMinus text="-" value="-" onClick={decreaseHandler} />
     </div>
   );
 }

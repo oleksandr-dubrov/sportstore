@@ -1,5 +1,5 @@
 import {
-  compose, setDisplayName, withHandlers, withState,
+  compose, setDisplayName, withHandlers, withState, mapProps,
 } from 'recompose';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -10,7 +10,7 @@ export const enhance = compose(
   setDisplayName('CartContainer'),
   connect(
     state => ({
-      products: state.get('selectedProducts').toJS(),
+      products: state.get('selectedProducts'),
     }),
     dispatch => bindActionCreators(
       {
@@ -20,12 +20,16 @@ export const enhance = compose(
     ),
   ),
   withState('quantity', 'setQuantity', ''),
+  withState('products', 'setProducts', props => props.products),
   withHandlers({
-    /* TODO: there is should be only one handler - onChangeHandler */
-    increaseQuantityHandler: ({ dispatchIncreaseQuantity }) => (product) => {
-      dispatchIncreaseQuantity(product.id, product.name, product.price, product.quantity);
+    onChangeHandler: ({ products, setProducts }) => (product, newQuantity) => {
+      setProducts(products.set(products.findIndex(p => p.id === product.id), { ...product, quantity: newQuantity }));
     },
   }),
+  mapProps(props => ({
+    ...props,
+    products: props.products.toJS(),
+  })),
 );
 
 export default enhance(Cart);
