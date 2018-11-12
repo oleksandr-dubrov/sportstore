@@ -1,5 +1,5 @@
 import {
-  compose, setDisplayName, withHandlers, withState, pure,
+  compose, setDisplayName, withHandlers, withState,
 } from 'recompose';
 import Counter from './Counter';
 
@@ -10,8 +10,9 @@ const enhance = compose(
     increaseHandler: ({
       product, quantity, onChangeHandler, setQuantity,
     }) => () => {
-      setQuantity(quantity + 1);
-      onChangeHandler(product, quantity);
+      const newQuantity = quantity + 1;
+      setQuantity(newQuantity);
+      onChangeHandler(product, newQuantity);
     },
     decreaseHandler: ({
       product, quantity, onChangeHandler, setQuantity,
@@ -27,7 +28,6 @@ const enhance = compose(
       onChangeHandler(product, Number(quantity));
     },
   }),
-  pure,
 );
 
 export default enhance(Counter);

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, InputText, ProductsText, PriceText } from 'components/controls';
+import {
+  Button, TextArea, ProductsText, PriceText, TotalText,
+} from 'components/controls';
 import { Counter } from 'components/widgets';
 import { OrderLayout } from 'components/layouts';
 
@@ -27,6 +29,7 @@ const HorizontalGapStyle = {
   marginBottom: '2px',
 };
 
+/* eslint no-alert: "off" */
 function Cart({ products, onChangeHandler, total }) {
   return (
     <OrderLayout name="Order">
@@ -47,10 +50,14 @@ function Cart({ products, onChangeHandler, total }) {
               ))}
             </ol>
             <hr />
-            <PriceText>{total}</PriceText>
-            <span>Enter all contact information:</span>
-            <InputText />
-            <Button text="Commit" />
+            <div>
+              <div style={{ display: 'inline-block', width: '90%' }}>
+                <TotalText>Total</TotalText>
+              </div>
+              <PriceText>{total}</PriceText>
+            </div>
+            <TextArea />
+            <Button text="Commit" onClick={() => alert(`Congratulations! You've just spent ${total} dollars.`)} />
           </div>
         ) : (
           <div> Nothing bought. Go back </div>

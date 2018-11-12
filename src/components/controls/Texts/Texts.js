@@ -16,6 +16,12 @@ const ProductsText = styled.span`
   font-weight: bold;
 `;
 
+const TotalText = styled.span`
+  color: blue;
+  font-weight: bold;
+  text-decoration: underline overline;
+`;
+
 export {
-  FooterText, FromItemText, FromSectionText, HeaderText, ProductsText,
+  FooterText, FromItemText, FromSectionText, HeaderText, ProductsText, TotalText,
 };

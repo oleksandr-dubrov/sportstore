@@ -20,30 +20,17 @@ export const enhance = compose(
     ),
   ),
   withState('quantity', 'setQuantity'),
-  withState('total', 'setTotal'),
+  withState('total', 'setTotal', 0),
   withState('products', 'setProducts', props => props.products),
   withHandlers({
     onChangeHandler: ({ products, setProducts }) => (product, newQuantity) => {
       setProducts(products.set(products.findIndex(p => p.id === product.id), { ...product, quantity: newQuantity }));
     },
   }),
-  lifecycle({
-    componentDidMount() {
-      console.log(this.props.products);
-      if (this.props.products.length > 0) {
-        this.props.setTotal(
-          this.props.products
-            .map(product => product.quantity * product.price)
-            .reduce((prev, current) => prev + current, 0),
-        );
-      } else {
-        this.props.setTotal(0);
-      }
-    },
-  }),
   mapProps(props => ({
     ...props,
     products: props.products.toJS(),
+    total: props.products.map(product => product.quantity * product.price).reduce((prev, current) => prev + current, 0),
   })),
   pure,
 );

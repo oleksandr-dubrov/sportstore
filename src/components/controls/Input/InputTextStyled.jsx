@@ -10,6 +10,8 @@ const InputStyled = styled.input`
   border: 2px solid ${Color};
   margin: 0;
   padding: 0.25em 1em;
+  width: 100%;
+  height: 10em;
 `;
 
 export default InputStyled;
