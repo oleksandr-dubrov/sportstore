@@ -17,6 +17,7 @@ const propTypes = {
     }),
   ).isRequired,
   onChangeHandler: PropTypes.func.isRequired,
+  onCommit: PropTypes.func.isRequired,
   total: PropTypes.number.isRequired,
 };
 
@@ -29,8 +30,9 @@ const HorizontalGapStyle = {
   marginBottom: '2px',
 };
 
-/* eslint no-alert: "off" */
-function Cart({ products, onChangeHandler, total }) {
+function Cart({
+  products, onChangeHandler, onCommit, total,
+}) {
   return (
     <OrderLayout name="Order">
       <div>
@@ -57,7 +59,7 @@ function Cart({ products, onChangeHandler, total }) {
               <PriceText>{total}</PriceText>
             </div>
             <TextArea />
-            <Button text="Commit" onClick={() => alert(`Congratulations! You've just spent ${total} dollars.`)} />
+            <Button text="Commit" onClick={onCommit} />
           </div>
         ) : (
           <div> Nothing bought. Go back </div>

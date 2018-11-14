@@ -3,7 +3,7 @@ import {
 } from 'recompose';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { increaseQuantity } from 'actions';
+import { changeQuantity } from 'actions';
 import Cart from './Cart';
 
 export const enhance = compose(
@@ -14,7 +14,7 @@ export const enhance = compose(
     }),
     dispatch => bindActionCreators(
       {
-        dispatchIncreaseQuantity: increaseQuantity,
+        dispatchChangeQuantity: changeQuantity,
       },
       dispatch,
     ),
@@ -25,6 +25,9 @@ export const enhance = compose(
   withHandlers({
     onChangeHandler: ({ products, setProducts }) => (product, newQuantity) => {
       setProducts(products.set(products.findIndex(p => p.id === product.id), { ...product, quantity: newQuantity }));
+    },
+    onCommit: ({ dispatchChangeQuantity, products }) => () => {
+      dispatchChangeQuantity(products);
     },
   }),
   mapProps(props => ({
