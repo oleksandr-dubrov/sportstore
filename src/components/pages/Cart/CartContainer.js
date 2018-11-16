@@ -1,9 +1,10 @@
 import {
-  compose, setDisplayName, withHandlers, withState, mapProps, lifecycle, pure,
+  compose, setDisplayName, withHandlers, withState, mapProps,
 } from 'recompose';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { changeQuantity } from 'actions';
+import { changeQuantity, removeProduct } from 'actions';
+import { Map } from 'immutable';
 import Cart from './Cart';
 
 export const enhance = compose(
@@ -15,6 +16,7 @@ export const enhance = compose(
     dispatch => bindActionCreators(
       {
         dispatchChangeQuantity: changeQuantity,
+        dispatchRemoveProduct: removeProduct,
       },
       dispatch,
     ),
@@ -24,18 +26,25 @@ export const enhance = compose(
   withState('products', 'setProducts', props => props.products),
   withHandlers({
     onChangeHandler: ({ products, setProducts }) => (product, newQuantity) => {
-      setProducts(products.set(products.findIndex(p => p.id === product.id), { ...product, quantity: newQuantity }));
+      setProducts(
+        products.set(products.findIndex(p => p.id === product.id), Map({ ...product, quantity: newQuantity })),
+      );
     },
-    onCommit: ({ dispatchChangeQuantity, products }) => () => {
+    onCommitHandler: ({ dispatchChangeQuantity, products }) => () => {
       dispatchChangeQuantity(products);
+    },
+    onRemoveHandler: ({ dispatchRemoveProduct }) => (id) => {
+      dispatchRemoveProduct(id);
     },
   }),
   mapProps(props => ({
     ...props,
     products: props.products.toJS(),
-    total: props.products.map(product => product.quantity * product.price).reduce((prev, current) => prev + current, 0),
+    total: props.products
+      .toJS()
+      .map(product => product.quantity * product.price)
+      .reduce((prev, current) => prev + current, 0),
   })),
-  pure,
 );
 
 export default enhance(Cart);

@@ -17,7 +17,8 @@ const propTypes = {
     }),
   ).isRequired,
   onChangeHandler: PropTypes.func.isRequired,
-  onCommit: PropTypes.func.isRequired,
+  onCommitHandler: PropTypes.func.isRequired,
+  onRemoveHandler: PropTypes.func.isRequired,
   total: PropTypes.number.isRequired,
 };
 
@@ -31,7 +32,7 @@ const HorizontalGapStyle = {
 };
 
 function Cart({
-  products, onChangeHandler, onCommit, total,
+  products, onChangeHandler, onCommitHandler, total, onRemoveHandler,
 }) {
   return (
     <OrderLayout name="Order">
@@ -48,6 +49,9 @@ function Cart({
                   <span style={VerticalGapStyle}>
                     <PriceText>{product.price * product.quantity}</PriceText>
                   </span>
+                  <span style={VerticalGapStyle}>
+                    <Button text="Remove" onClick={() => onRemoveHandler(product.id)} />
+                  </span>
                 </li>
               ))}
             </ol>
@@ -59,7 +63,7 @@ function Cart({
               <PriceText>{total}</PriceText>
             </div>
             <TextArea />
-            <Button text="Commit" onClick={onCommit} />
+            <Button text="Commit" onClick={onCommitHandler} />
           </div>
         ) : (
           <div> Nothing bought. Go back </div>
