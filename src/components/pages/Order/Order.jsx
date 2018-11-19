@@ -1,4 +1,6 @@
 import React from 'react';
+import { Chart } from 'primereact/chart';
+import OrderStyled from './OrderStyled';
 
 function Order() {
   const data = {
@@ -17,9 +19,10 @@ function Order() {
     ],
   };
   return (
-    <div>
+    <OrderStyled>
       <h3>Order</h3>
-    </div>
+      <Chart type="bar" data={data} />
+    </OrderStyled>
   );
 }
 
