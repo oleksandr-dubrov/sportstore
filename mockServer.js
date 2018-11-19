@@ -12,7 +12,7 @@ const mockServerDataJson = db();
 // Routes
 server.get('/v1/products', (req, res) => {
   const data = mockServerDataJson[req.header('X-User-Id')].products;
-  res.jsonp(data);
+  setTimeout(() => res.jsonp(data), 1000);
 });
 
 server.use(router);

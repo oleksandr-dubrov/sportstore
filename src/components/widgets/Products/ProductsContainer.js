@@ -28,8 +28,12 @@ const enhance = compose(
     fetchProductsHandler: ({ dispatchFetchProduct }) => () => {
       dispatchFetchProduct();
     },
+    isSelected: ({ selectedProducts }) => product => !!selectedProducts.find(p => p.name === product.name),
   }),
   lifecycle({
+    componentWillMount() {
+      /* do nothing when will mount (just example) */
+    },
     componentDidMount() {
       this.props.fetchProductsHandler();
     },

@@ -14,15 +14,27 @@ const propTypes = {
     }),
   ).isRequired,
   selectProductsHandler: PropTypes.func.isRequired,
+  isSelected: PropTypes.func.isRequired,
 };
 
-function Products({ fetchedProducts, selectProductsHandler }) {
+function Products({ fetchedProducts, selectProductsHandler, isSelected }) {
   return (
-    <ProductsStyled>
-      {fetchedProducts.map(fetchedProduct => (
-        <Product key={fetchedProduct.name} {...fetchedProduct} selectProductsHandler={selectProductsHandler} />
-      ))}
-    </ProductsStyled>
+    <div>
+      {fetchedProducts.length > 0 ? (
+        <ProductsStyled>
+          {fetchedProducts.map(fetchedProduct => (
+            <Product
+              isSelected={isSelected(fetchedProduct)}
+              key={fetchedProduct.name}
+              {...fetchedProduct}
+              selectProductsHandler={selectProductsHandler}
+            />
+          ))}
+        </ProductsStyled>
+      ) : (
+        <h3>Loading...</h3>
+      )}
+    </div>
   );
 }
 

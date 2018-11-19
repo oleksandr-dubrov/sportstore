@@ -1,5 +1,5 @@
 import {
-  compose, setDisplayName, withHandlers, withState, mapProps,
+  compose, setDisplayName, withHandlers, withState, mapProps, lifecycle, pure,
 } from 'recompose';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -43,6 +43,12 @@ export const enhance = compose(
       .map(product => product.quantity * product.price)
       .reduce((prev, current) => prev + current, 0),
   })),
+  lifecycle({
+    componentWillUnmount() {
+      this.props.onCommitHandler();
+    },
+  }),
+  pure,
 );
 
 export default enhance(Cart);

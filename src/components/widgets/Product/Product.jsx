@@ -11,11 +11,14 @@ const propTypes = {
   selectHandler: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
+  isSelected: PropTypes.bool.isRequired,
 };
 
 const elementStyle = { display: 'inline' };
 
-function Product({ name, price, selectHandler }) {
+function Product({
+  name, price, selectHandler, isSelected,
+}) {
   return (
     <ProductStyled>
       <Picture style={elementStyle} />
@@ -23,7 +26,7 @@ function Product({ name, price, selectHandler }) {
       {' '}
       <PriceText style={elementStyle}>{price}</PriceText>
       {' '}
-      <ToggleButton text="buy" otherText="bought" value="buy" onClick={selectHandler} />
+      <ToggleButton toggled={isSelected} text="buy" otherText="bought" value="buy" onClick={selectHandler} />
     </ProductStyled>
   );
 }
