@@ -4,7 +4,6 @@ import {
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { changeQuantity, removeProduct } from 'actions';
-import { Map } from 'immutable';
 import Cart from './Cart';
 
 export const enhance = compose(
@@ -26,15 +25,14 @@ export const enhance = compose(
   withState('products', 'setProducts', props => props.products),
   withHandlers({
     onChangeHandler: ({ products, setProducts }) => (product, newQuantity) => {
-      setProducts(
-        products.set(products.findIndex(p => p.id === product.id), Map({ ...product, quantity: newQuantity })),
-      );
+      setProducts(products.set(products.findIndex(p => p.id === product.id), { ...product, quantity: newQuantity }));
     },
     onCommitHandler: ({ dispatchChangeQuantity, products }) => () => {
       dispatchChangeQuantity(products);
     },
-    onRemoveHandler: ({ dispatchRemoveProduct }) => (id) => {
+    onRemoveHandler: ({ dispatchRemoveProduct, setProducts, products }) => (id) => {
       dispatchRemoveProduct(id);
+      setProducts(products.remove(products.findIndex(p => p.id === id)));
     },
   }),
   mapProps(props => ({
