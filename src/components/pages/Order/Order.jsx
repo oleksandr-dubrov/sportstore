@@ -1,31 +1,35 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Chart } from 'primereact/chart';
+import { OrderLayout } from 'components/layouts';
 import OrderStyled from './OrderStyled';
 
-function Order() {
-  const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [
-      {
-        label: 'My First dataset',
-        backgroundColor: '#42A5F5',
-        data: [65, 59, 80, 81, 56, 55, 40],
-      },
-      {
-        label: 'My Second dataset',
-        backgroundColor: '#9CCC65',
-        data: [28, 48, 40, 19, 86, 27, 90],
-      },
-    ],
-  };
+const displayName = 'Order';
+const propTypes = {
+  data: PropTypes.shape({
+    labels: PropTypes.arrayOf(PropTypes.string).isRequired,
+    datasets: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        backgroundColor: PropTypes.string.isRequired,
+        data: PropTypes.arrayOf(PropTypes.number).isRequired,
+      }),
+    ).isRequired,
+  }).isRequired,
+};
+
+function Order({ data }) {
   return (
-    <OrderStyled>
-      <h3>Order</h3>
-      <Chart type="bar" data={data} />
-    </OrderStyled>
+    <OrderLayout name="Order">
+      <OrderStyled>
+        <h3>Order</h3>
+        <Chart type="bar" data={data} />
+      </OrderStyled>
+    </OrderLayout>
   );
 }
 
-Order.displayName = 'Order';
+Order.displayName = displayName;
+Order.propTypes = propTypes;
 
 export default Order;

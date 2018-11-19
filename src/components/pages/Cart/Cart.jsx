@@ -34,7 +34,7 @@ function Cart({
   products, onChangeHandler, total, onRemoveHandler,
 }) {
   return (
-    <OrderLayout name="Order">
+    <OrderLayout name="Cart">
       <div>
         {products.length > 0 ? (
           <div>
