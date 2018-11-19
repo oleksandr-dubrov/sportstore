@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Button, TextArea, ProductsText, PriceText, TotalText,
+  Button, AcceptButton, TextArea, ProductsText, PriceText, TotalText,
 } from 'components/controls';
 import { Counter } from 'components/widgets';
 import { OrderLayout } from 'components/layouts';
@@ -17,7 +17,6 @@ const propTypes = {
     }),
   ).isRequired,
   onChangeHandler: PropTypes.func.isRequired,
-  onCommitHandler: PropTypes.func.isRequired,
   onRemoveHandler: PropTypes.func.isRequired,
   total: PropTypes.number.isRequired,
 };
@@ -32,7 +31,7 @@ const HorizontalGapStyle = {
 };
 
 function Cart({
-  products, onChangeHandler, onCommitHandler, total, onRemoveHandler,
+  products, onChangeHandler, total, onRemoveHandler,
 }) {
   return (
     <OrderLayout name="Order">
@@ -63,7 +62,7 @@ function Cart({
               <PriceText>{total}</PriceText>
             </div>
             <TextArea />
-            <Button text="Commit" onClick={onCommitHandler} />
+            <AcceptButton text="Commit" to="/order" />
           </div>
         ) : (
           <div> Nothing bought. Go back </div>

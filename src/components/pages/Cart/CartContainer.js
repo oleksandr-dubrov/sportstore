@@ -1,6 +1,7 @@
 import {
   compose, setDisplayName, withHandlers, withState, mapProps, lifecycle, pure,
 } from 'recompose';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { changeQuantity, removeProduct } from 'actions';
@@ -23,12 +24,16 @@ export const enhance = compose(
   withState('quantity', 'setQuantity'),
   withState('total', 'setTotal', 0),
   withState('products', 'setProducts', props => props.products),
+  withRouter,
   withHandlers({
     onChangeHandler: ({ products, setProducts }) => (product, newQuantity) => {
       setProducts(products.set(products.findIndex(p => p.id === product.id), { ...product, quantity: newQuantity }));
     },
-    onCommitHandler: ({ dispatchChangeQuantity, products }) => () => {
+    onCommitHandler: ({
+      dispatchChangeQuantity, products, to, history,
+    }) => () => {
       dispatchChangeQuantity(products);
+      history.push(to);
     },
     onRemoveHandler: ({ dispatchRemoveProduct, setProducts, products }) => (id) => {
       dispatchRemoveProduct(id);

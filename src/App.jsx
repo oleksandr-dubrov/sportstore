@@ -1,5 +1,5 @@
 import React from 'react';
-import { Catalog, /* Order, */ Cart } from 'components/pages';
+import { Catalog, Order, Cart } from 'components/pages';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import * as themes from 'themes';
 import store from 'store';
@@ -16,7 +16,7 @@ export default function App() {
           <Switch>
             <Route path="/" exact component={Catalog} />
             <Route path="/cart" component={Cart} />
-            {/* under construction <Route path="/order" component={Order} /> */}
+            <Route path="/order" component={Order} />
           </Switch>
         </BrowserRouter>
       </Provider>
