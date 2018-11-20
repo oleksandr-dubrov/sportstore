@@ -1,0 +1,69 @@
+TRAINING PLAN
+REACT JS
+ 
+1.	React project setup
+-	Webpack: dev, test, prod settings
+-	Babel
+-	ECMAScript sugar
+https://webpack.js.org/
+https://babeljs.io/
+http://es6-features.org/#Constants
+Task
+Setup a React project using Webpack, Webpack Dev Server, with dev and prod settings. Use UglifyJS, “build” output folder, HTML Manifests, index.html templating.
+
+2.	React JS
+-	Functional components
+-	Livecycle
+-	Proptypes
+-	Props.children
+-	Fragments
+-	Best practices
+https://reactjs.org/docs/getting-started.html
+https://reactpatterns.com/
+https://github.com/MicheleBertoli/react-design-patterns-and-best-practices
+https://github.com/vasanthk/react-bits/tree/master/anti-patterns
+Task
+Create a SportsStore application. Assume you have list of sport goods. Implement a page with ability to select items from the list and specify count of items to buy. On the next page implement fields to fill in delivery address, personal details, type of payment. On the next page display information about your order in read-only summary view.
+ 
+3.	Redux. ImmutableJS
+-	Store splitting
+-	Types of reducers
+-	Middleware
+-	Actions. FSA
+-	Asynchronous actions
+-	Redux thunk
+-	JSON server
+-	Axios
+https://redux.js.org/
+https://facebook.github.io/immutable-js/
+https://github.com/reduxjs/redux-thunk
+https://github.com/typicode/json-server
+https://github.com/axios/axios
+Task
+Implement immutable Redux store for the SportsStore application.
+
+4.	Recompose. Reselect
+https://github.com/acdlite/recompose/blob/master/docs/API.md
+https://github.com/reduxjs/reselect
+Task
+Re-organize the SportsStore application using Reselect. Implement selectors for the Redux store.
+
+5.	React Routing
+https://reacttraining.com/react-router/web/guides/philosophy
+Task
+Implement page routing using React Router for pages in the SportsStore application.
+ 
+6.	Styled Components. Responsive Grid Layout
+https://www.styled-components.com/
+Task
+Implement responsive styling for the SportsStore application with two colored skins.
+
+7.	Unit tests with Jest
+https://jestjs.io/
+Task
+Implement unit tests for the SportsStore application.
+
+8.	Automation with WebdriverIO
+http://webdriver.io/
+Task
+Implement E2E tests for vital scenarios for the SportsStore application.
